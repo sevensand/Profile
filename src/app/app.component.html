@@ -1,0 +1,53 @@
+<mat-toolbar color="primary">
+  <button mat-button (click)="sidenav.toggle()" ><mat-icon class="example-icon" >menu</mat-icon></button>
+  <span class="example-spacer"></span>
+  <button mat-button><mat-icon class="example-icon" >notifications_none</mat-icon></button>
+  <button mat-button><mat-icon class="example-icon" >info</mat-icon></button>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidebar-menu">
+
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <div class="container">
+      <div class="sidebar-icon-menu">
+        <div class="sidemenuopened">
+        <mat-nav-list>
+         <a href="" matTooltip="Dashboard"><mat-icon>view_quilt</mat-icon></a>
+        <a href="" matTooltip="Projects"><mat-icon>build</mat-icon></a>
+        <a href="" matTooltip="Personal Info"><mat-icon>account_circle</mat-icon> </a>
+        <a href="" matTooltip="Settings"><mat-icon>settings</mat-icon> </a>
+        </mat-nav-list>
+      </div>
+      </div>
+        <div class="profile_side">
+          <div class="sidemenuopened">
+            <mat-card>
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+              </mat-card-header>
+              <mat-card-content>
+
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+    </div>
+  </mat-sidenav>
+
+  <div class="example-scrolling-content">
+  <br/>
+    <mat-grid-list cols="3" rowHeight="1:1">
+      <mat-grid-tile>
+        <mat-card>Simple card</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>Simple card</mat-card>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-card>Simple card</mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+
+</mat-sidenav-container>
