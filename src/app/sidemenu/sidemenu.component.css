@@ -4,9 +4,9 @@
 }
 
 .sidebar-menu mat-sidenav {
-  max-width: 100%;
+  max-width: 290px;
   height: 100%;
-  background-color: #808ca0;
+  background-color: rgba(0, 0, 0, 0.95);
 }
 
 .example-sidenav-fab-container .mat-sidenav-content,
@@ -33,14 +33,31 @@
   float: left;
   width: 20%;
   height: 100%;
-  background-color: #9b9ba5;
+  background-color: rgba(0, 0, 0, 0.95);
+
 }
 .profile_side {
   float: right;
   width: 80%;
 }
 
-.example-header-image {
+.header-image {
+  width: 150px;
+  height: 150px;
   background-image: url('http://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size:contain;
+}
+
+.mat-card {
+  background-color: #808ca0;
+}
+.mat-icon {
+  color: #fff;
+
+}
+.mat-nav-list .mat-icon {
+    margin-bottom: 20px;
+}
+.text-name {
+  color: #fff;
 }

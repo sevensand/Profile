@@ -30,6 +30,4 @@ app.get('/pController', function(req, res){
   });
 });
 
-
-
 }
