@@ -9,7 +9,7 @@ import 'hammerjs';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { ProfileProvider } from './provider/profile/profile.service';
-import { MatButtonToggleModule,MatExpansionModule, MatChipsModule, MatTableModule, MatSliderModule, MatNativeDateModule, MatTooltipModule, MatGridListModule, MatCardModule, MatMenuModule, MatInputModule, MatButtonModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatDatepickerModule, MatProgressSpinnerModule, MatProgressBarModule, MatSelectModule, MatSlideToggleModule } from '@angular/material';
+import { MatButtonToggleModule,MatExpansionModule, MatChipsModule, MatTableModule, MatDialogModule, MatSliderModule, MatNativeDateModule, MatTooltipModule, MatGridListModule, MatCardModule, MatMenuModule, MatInputModule, MatButtonModule, MatSidenavModule, MatToolbarModule, MatIconModule, MatListModule, MatCheckboxModule, MatFormFieldModule, MatDatepickerModule, MatProgressSpinnerModule, MatProgressBarModule, MatSelectModule, MatSlideToggleModule } from '@angular/material';
 import {A11yModule} from '@angular/cdk/a11y';
 import {BidiModule} from '@angular/cdk/bidi';
 import {ObserversModule} from '@angular/cdk/observers';
@@ -28,6 +28,7 @@ import * as FusionCharts from 'fusioncharts';
 import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { ServicesComponent } from './components/services/services.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 
 
@@ -42,7 +43,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     AboutComponent,
     PortfolioComponent,
     ContactusComponent,
-    ServicesComponent
+    ServicesComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
@@ -74,8 +76,12 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     AppRoutingModule,
     FusionChartsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
 
+  ],
+  entryComponents: [
+    DialogComponent
   ],
   exports: [MatButtonModule, MatCheckboxModule, SidemenuComponent, TopheaderComponent],
   providers: [
