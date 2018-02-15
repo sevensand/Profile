@@ -1,8 +1,7 @@
 <mat-toolbar color="primary" class="fixed-header">
   <button mat-button (click)="sidenav.toggle()" ><mat-icon class="toolbar-icon" >menu</mat-icon></button>
   <span class="icon-spacer"></span>
-  <button mat-button><mat-icon class="toolbar-icon" >search</mat-icon></button>
-  <button mat-button><mat-icon class="toolbar-icon" >mail</mat-icon></button>
+  <button mat-button (click)="sendMessage()"><mat-icon class="toolbar-icon" >mail</mat-icon></button>
   <button mat-button><mat-icon class="toolbar-icon" >notifications_none</mat-icon></button>
   <button mat-button (click)="openDialog()"><mat-icon class="toolbar-icon" >info</mat-icon></button>
 </mat-toolbar>

@@ -184,12 +184,16 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_fusioncharts_themes_fusioncharts_theme_fint__ = __webpack_require__("../../../../fusioncharts/themes/fusioncharts.theme.fint.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_fusioncharts_themes_fusioncharts_theme_fint___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_19_fusioncharts_themes_fusioncharts_theme_fint__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__components_services_services_component__ = __webpack_require__("../../../../../src/app/components/services/services.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__components_dialog_dialog_component__ = __webpack_require__("../../../../../src/app/components/dialog/dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_message_message_component__ = __webpack_require__("../../../../../src/app/components/message/message.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -227,41 +231,48 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_12__components_about_about_component__["a" /* AboutComponent */],
             __WEBPACK_IMPORTED_MODULE_14__components_portfolio_portfolio_component__["a" /* PortfolioComponent */],
             __WEBPACK_IMPORTED_MODULE_15__components_contactus_contactus_component__["a" /* ContactusComponent */],
-            __WEBPACK_IMPORTED_MODULE_20__components_services_services_component__["a" /* ServicesComponent */]
+            __WEBPACK_IMPORTED_MODULE_20__components_services_services_component__["a" /* ServicesComponent */],
+            __WEBPACK_IMPORTED_MODULE_21__components_dialog_dialog_component__["a" /* DialogComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__components_message_message_component__["a" /* MessageComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["n" /* MatMenuModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["a" /* MatButtonModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["s" /* MatSidenavModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["w" /* MatToolbarModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["k" /* MatIconModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["m" /* MatListModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MatCheckboxModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["i" /* MatFormFieldModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["f" /* MatDatepickerModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["q" /* MatProgressSpinnerModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["p" /* MatProgressBarModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["r" /* MatSelectModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["t" /* MatSlideToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["l" /* MatInputModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatButtonToggleModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["c" /* MatCardModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["h" /* MatExpansionModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["j" /* MatGridListModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["x" /* MatTooltipModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["o" /* MatNativeDateModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatChipsModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["u" /* MatSliderModule */],
-            __WEBPACK_IMPORTED_MODULE_8__angular_material__["v" /* MatTableModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["q" /* MatMenuModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatButtonModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["v" /* MatSidenavModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["z" /* MatToolbarModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["n" /* MatIconModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["p" /* MatListModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatCheckboxModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["l" /* MatFormFieldModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["g" /* MatDatepickerModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["t" /* MatProgressSpinnerModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["s" /* MatProgressBarModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["u" /* MatSelectModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["w" /* MatSlideToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["o" /* MatInputModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["c" /* MatButtonToggleModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MatCardModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["k" /* MatExpansionModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["m" /* MatGridListModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["A" /* MatTooltipModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["r" /* MatNativeDateModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["f" /* MatChipsModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["x" /* MatSliderModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["y" /* MatTableModule */],
             __WEBPACK_IMPORTED_MODULE_13__app_routing_app_routing_module__["a" /* AppRoutingModule */],
             __WEBPACK_IMPORTED_MODULE_16_angular2_fusioncharts__["a" /* FusionChartsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["d" /* FormsModule */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["i" /* ReactiveFormsModule */]
+            __WEBPACK_IMPORTED_MODULE_3__angular_forms__["i" /* ReactiveFormsModule */],
+            __WEBPACK_IMPORTED_MODULE_8__angular_material__["i" /* MatDialogModule */]
         ],
-        exports: [__WEBPACK_IMPORTED_MODULE_8__angular_material__["a" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_8__angular_material__["d" /* MatCheckboxModule */], __WEBPACK_IMPORTED_MODULE_9__sidemenu_sidemenu_component__["a" /* SidemenuComponent */], __WEBPACK_IMPORTED_MODULE_10__topheader_topheader_component__["a" /* TopheaderComponent */]],
+        entryComponents: [
+            __WEBPACK_IMPORTED_MODULE_21__components_dialog_dialog_component__["a" /* DialogComponent */],
+            __WEBPACK_IMPORTED_MODULE_22__components_message_message_component__["a" /* MessageComponent */]
+        ],
+        exports: [__WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatButtonModule */], __WEBPACK_IMPORTED_MODULE_8__angular_material__["e" /* MatCheckboxModule */], __WEBPACK_IMPORTED_MODULE_9__sidemenu_sidemenu_component__["a" /* SidemenuComponent */], __WEBPACK_IMPORTED_MODULE_10__topheader_topheader_component__["a" /* TopheaderComponent */]],
         providers: [
             __WEBPACK_IMPORTED_MODULE_7__provider_profile_profile_service__["a" /* ProfileProvider */]
         ],
@@ -534,6 +545,152 @@ var _a;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/dialog/dialog.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/dialog/dialog.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n<h2 mat-dialog-title>About this Apps</h2>\n  <h3>Version 0.0.1</h3>\n<mat-dialog-content>\n  <li>Node js</li>\n  <li>Express js</li>\n  <li>Angular js 4</li>\n  <li>Angular Material 2</li>\n  <li>CSS</li>\n  <li>HTML</li>\n  <li>Rest API</li>\n  <li>NoSQL</li>\n  <li>MLAB</li>\n</mat-dialog-content>\n\n<mat-dialog-actions>\n  <button mat-raised-button color=\"primary\" (click)=\"onCloseCancel()\">Close</button>\n</mat-dialog-actions>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/dialog/dialog.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DialogComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var DialogComponent = (function () {
+    function DialogComponent(thisDialogRef, data) {
+        this.thisDialogRef = thisDialogRef;
+        this.data = data;
+    }
+    DialogComponent.prototype.ngOnInit = function () {
+    };
+    DialogComponent.prototype.onCloseCancel = function () {
+        this.thisDialogRef.close('Confirm');
+    };
+    return DialogComponent;
+}());
+DialogComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-dialog',
+        template: __webpack_require__("../../../../../src/app/components/dialog/dialog.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/dialog/dialog.component.css")]
+    }),
+    __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object, Object])
+], DialogComponent);
+
+var _a;
+//# sourceMappingURL=dialog.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/message/message.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".mat-form-field {\r\n  width: 100%;\r\n}\r\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/message/message.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<mat-dialog-content>\n  <mat-form-field>\n    <input matInput placeholder=\"Name\">\n  </mat-form-field>\n  <mat-form-field>\n    <input matInput placeholder=\"Subject\">\n  </mat-form-field>\n  <mat-form-field>\n    <textarea matInput placeholder=\"Message\"></textarea>\n  </mat-form-field>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-raised-button color=\"primary\" (click)=\"onSend()\">Send</button>\n</mat-dialog-actions>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/message/message.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+var MessageComponent = (function () {
+    function MessageComponent(thisDialogRef, data) {
+        this.thisDialogRef = thisDialogRef;
+        this.data = data;
+    }
+    MessageComponent.prototype.ngOnInit = function () {
+    };
+    MessageComponent.prototype.onSend = function () {
+        this.thisDialogRef.close('Confirm');
+    };
+    return MessageComponent;
+}());
+MessageComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-message',
+        template: __webpack_require__("../../../../../src/app/components/message/message.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/message/message.component.css")]
+    }),
+    __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object, Object])
+], MessageComponent);
+
+var _a;
+//# sourceMappingURL=message.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/portfolio/portfolio.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -616,7 +773,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/services/services.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"services_top\">\n  <div class=\"services_container\">\n    <div class=\"services_row\">\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEB DESIGN & DEVELOPMENT</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/developed.png\" class=\"top-icon\"/></h1>\n          <p>why you need website? yes for your marketing, online brochure, more customers thru online, business value. </p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEBSITE REDESIGN</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/brash.png\" class=\"top-icon\"/></h1>\n          <p>enchance the original design of your website, outdate content and poor search engine ranking in google.</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WORDPRESS DEVELOPMENT</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/wordpress.png\" class=\"top-icon\"/></h1>\n           <p>specializes in developing custom WordPress CMS Websites like Personal blog,  business or enterprise level. </p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEBSITE MAINTENANCE</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/maintenance.png\" class=\"top-icon\"/></h1>\n          <p>Update your website and make sure it is kept up to update and relevant content.</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n    </div>\n\n    <div class=\"services_row\">\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEB BASED APPLICATION</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/global.png\" class=\"top-icon\"/></h1>\n          <p>web base application are bulit in PHP, JavaScript, MYSQL, Angular JS, NodeJS, VueJS and other modern technology</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">SEARCH ENGINE OPTIMIZATION</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/bino.png\" class=\"top-icon\"/></h1>\n          <p>helps to ensure your website is accessible and to get web page high search engine ranking in google</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">MOBILE APPLICATION</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/mobile.png\" class=\"top-icon\"/></h1>\n          <p>creating mobile apps for your business, accelerate product inovation, strengthen your brand name, boost your website traffic</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"services_top\">\n  <div class=\"services_container\">\n    <div class=\"services_row\">\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEB DESIGN & DEVELOPMENT</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/developed.png\" class=\"top-icon\"/></h1>\n          <p>why you need website? yes for your marketing, online brochure, more customers thru online, business value. </p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEBSITE REDESIGN</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/brash.png\" class=\"top-icon\"/></h1>\n          <p>i can help you to enchance the original design of your website, outdate content and poor search engine ranking in google.</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WORDPRESS DEVELOPMENT</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/wordpress.png\" class=\"top-icon\"/></h1>\n           <p>i can help you to specializes in developing custom WordPress CMS Websites like Personal blog,  business or enterprise level. </p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEBSITE MAINTENANCE</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/maintenance.png\" class=\"top-icon\"/></h1>\n          <p>i can help you to update your website and make sure it is kept up to update and relevant content.</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n    </div>\n\n    <div class=\"services_row\">\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">WEB BASED APPLICATION</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/global.png\" class=\"top-icon\"/></h1>\n          <p>web base application are bulit in PHP, JavaScript, MYSQL, Angular JS, NodeJS, VueJS and other modern technology</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">SEARCH ENGINE OPTIMIZATION</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/bino.png\" class=\"top-icon\"/></h1>\n          <p>helps to ensure your website is accessible and to get web page high search engine ranking in google</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n\n      <div class=\"services_col\">\n        <mat-card class=\"matcard-slunt\">\n          <mat-card-title class=\"title-head\">\n              <h2 class=\"mat-h2\">MOBILE APPLICATION</h2>\n          </mat-card-title>\n          <mat-card-content>\n        <div class=\"proj\">\n          <h1 class=\"proj-cont\"><img src=\"assets/mobile.png\" class=\"top-icon\"/></h1>\n          <p>creating mobile apps for your business, accelerate product inovation, strengthen your brand name, boost your website traffic</p>\n        </div>\n          </mat-card-content>\n            <mat-progress-bar mode=\"indeterminate\" color=\"\"></mat-progress-bar>\n        </mat-card>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -789,7 +946,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/topheader/topheader.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"fixed-header\">\n  <button mat-button (click)=\"sidenav.toggle()\" ><mat-icon class=\"toolbar-icon\" >menu</mat-icon></button>\n  <span class=\"icon-spacer\"></span>\r\n  <button mat-button><mat-icon class=\"toolbar-icon\" >search</mat-icon></button>\r\n  <button mat-button><mat-icon class=\"toolbar-icon\" >mail</mat-icon></button>\n  <button mat-button><mat-icon class=\"toolbar-icon\" >notifications_none</mat-icon></button>\n  <button mat-button (click)=\"openDialog()\"><mat-icon class=\"toolbar-icon\" >info</mat-icon></button>\n</mat-toolbar>\r\n\r\n\r\n<mat-sidenav-container class=\"mainContent\">\r\n  <mat-sidenav #sidenav mode=\"side\" opened=\"true\">\r\n    <div class=\"sideiconmenu\">\r\n      <mat-list dense>\r\n        <mat-list-item><a routerLink=\"\" matTooltip=\"Dashboard\"><mat-icon class=\"toolbar-icon\">view_quilt</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/about\" matTooltip=\"About\"><mat-icon>portrait</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Resume\"><mat-icon>insert_drive_file</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/portfolio\" matTooltip=\"Portfolio\"><mat-icon>library_books</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/services\" matTooltip=\"Services\"><mat-icon>build</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/contactus\" matTooltip=\"Contact Me\"><mat-icon>phone</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Settings\"><mat-icon>settings</mat-icon></a></mat-list-item>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"profile_side\">\r\n      <mat-card>\r\n        <mat-card-header>\r\n          <div mat-card-avatar class=\"image-profile\" style=\"background-image:url('assets/profile.jpg')\"></div>\r\n        </mat-card-header>\r\n        <mat-card-content class=\"text-name\">\r\n\r\n          <br />\r\n\r\n\r\n      <p *ngFor=\"let profile of name\">\r\n\r\n          <strong>Full Name:</strong> {{ profile.name }}\r\n          <br /><br />\r\n          <strong>Birth Date:</strong> {{ profile.bdate }}\r\n          <br /><br />\r\n          <strong>Job:</strong> {{ profile.job }}\r\n          <br /><br />\r\n          <strong>Email:</strong> {{ profile.email }}\r\n          <br /><br />\r\n          <strong>Website: </strong> {{ profile.website }}\r\n          <br /><br />\r\n          <strong>From: </strong> {{ profile.from }}\r\n          <br /><br />\r\n          <strong>Current Location: </strong> {{ profile.loc }}\r\n      </p>\r\n\r\n        </mat-card-content>\r\n      </mat-card>\r\n    </div>\r\n\r\n  </mat-sidenav>\r\n\r\n\r\n  <!-- <div class=\"example-sidenav-content\">\r\n  <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\r\n    Toggle sidenav\r\n  </button>\r\n</div> -->\r\n</mat-sidenav-container>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<mat-toolbar color=\"primary\" class=\"fixed-header\">\n  <button mat-button (click)=\"sidenav.toggle()\" ><mat-icon class=\"toolbar-icon\" >menu</mat-icon></button>\n  <span class=\"icon-spacer\"></span>\r\n  <button mat-button (click)=\"sendMessage()\"><mat-icon class=\"toolbar-icon\" >mail</mat-icon></button>\n  <button mat-button><mat-icon class=\"toolbar-icon\" >notifications_none</mat-icon></button>\n  <button mat-button (click)=\"openDialog()\"><mat-icon class=\"toolbar-icon\" >info</mat-icon></button>\n</mat-toolbar>\r\n\r\n\r\n<mat-sidenav-container class=\"mainContent\">\r\n  <mat-sidenav #sidenav mode=\"side\" opened=\"true\">\r\n    <div class=\"sideiconmenu\">\r\n      <mat-list dense>\r\n        <mat-list-item><a routerLink=\"\" matTooltip=\"Dashboard\"><mat-icon class=\"toolbar-icon\">view_quilt</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/about\" matTooltip=\"About\"><mat-icon>portrait</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Resume\"><mat-icon>insert_drive_file</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/portfolio\" matTooltip=\"Portfolio\"><mat-icon>library_books</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/services\" matTooltip=\"Services\"><mat-icon>build</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/contactus\" matTooltip=\"Contact Me\"><mat-icon>phone</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Settings\"><mat-icon>settings</mat-icon></a></mat-list-item>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"profile_side\">\r\n      <mat-card>\r\n        <mat-card-header>\r\n          <div mat-card-avatar class=\"image-profile\" style=\"background-image:url('assets/profile.jpg')\"></div>\r\n        </mat-card-header>\r\n        <mat-card-content class=\"text-name\">\r\n\r\n          <br />\r\n\r\n\r\n      <p *ngFor=\"let profile of name\">\r\n\r\n          <strong>Full Name:</strong> {{ profile.name }}\r\n          <br /><br />\r\n          <strong>Birth Date:</strong> {{ profile.bdate }}\r\n          <br /><br />\r\n          <strong>Job:</strong> {{ profile.job }}\r\n          <br /><br />\r\n          <strong>Email:</strong> {{ profile.email }}\r\n          <br /><br />\r\n          <strong>Website: </strong> {{ profile.website }}\r\n          <br /><br />\r\n          <strong>From: </strong> {{ profile.from }}\r\n          <br /><br />\r\n          <strong>Current Location: </strong> {{ profile.loc }}\r\n      </p>\r\n\r\n        </mat-card-content>\r\n      </mat-card>\r\n    </div>\r\n\r\n  </mat-sidenav>\r\n\r\n\r\n  <!-- <div class=\"example-sidenav-content\">\r\n  <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\r\n    Toggle sidenav\r\n  </button>\r\n</div> -->\r\n</mat-sidenav-container>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -802,6 +959,8 @@ module.exports = "<mat-toolbar color=\"primary\" class=\"fixed-header\">\n  <but
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("../../../forms/@angular/forms.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__provider_profile_profile_service__ = __webpack_require__("../../../../../src/app/provider/profile/profile.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_dialog_dialog_component__ = __webpack_require__("../../../../../src/app/components/dialog/dialog.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_message_message_component__ = __webpack_require__("../../../../../src/app/components/message/message.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -815,12 +974,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var TopheaderComponent = TopheaderComponent_1 = (function () {
+
+
+var TopheaderComponent = (function () {
     function TopheaderComponent(profileProvider, dialog) {
         var _this = this;
         this.profileProvider = profileProvider;
         this.dialog = dialog;
         this.date = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormControl */](new Date());
+        this.dialogResult = "";
+        this.dialogMessage = "";
         this.profileProvider.getName()
             .subscribe(function (res) {
             _this.name = res;
@@ -829,25 +992,35 @@ var TopheaderComponent = TopheaderComponent_1 = (function () {
     TopheaderComponent.prototype.ngOnInit = function () {
     };
     TopheaderComponent.prototype.openDialog = function () {
-        var dialogRef = this.dialog.open(TopheaderComponent_1, {
-            height: '350px'
+        var _this = this;
+        var dialogref = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__components_dialog_dialog_component__["a" /* DialogComponent */], {
+            width: '600px'
         });
-        dialogRef.afterClosed().subscribe(function (result) {
-            console.log("Dialog result: " + result);
+        dialogref.afterClosed().subscribe(function (result) {
+            _this.dialogResult = result;
+        });
+    };
+    TopheaderComponent.prototype.sendMessage = function () {
+        var _this = this;
+        var dialogMess = this.dialog.open(__WEBPACK_IMPORTED_MODULE_5__components_message_message_component__["a" /* MessageComponent */], {
+            width: '600px'
+        });
+        dialogMess.afterClosed().subscribe(function (result) {
+            _this.dialogMessage = result;
         });
     };
     return TopheaderComponent;
 }());
-TopheaderComponent = TopheaderComponent_1 = __decorate([
+TopheaderComponent = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
         selector: 'app-topheader',
         template: __webpack_require__("../../../../../src/app/topheader/topheader.component.html"),
         styles: [__webpack_require__("../../../../../src/app/topheader/topheader.component.css")],
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__provider_profile_profile_service__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__provider_profile_profile_service__["a" /* ProfileProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["g" /* MatDialog */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__provider_profile_profile_service__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__provider_profile_profile_service__["a" /* ProfileProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MatDialog */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_material__["h" /* MatDialog */]) === "function" && _b || Object])
 ], TopheaderComponent);
 
-var TopheaderComponent_1, _a, _b;
+var _a, _b;
 //# sourceMappingURL=topheader.component.js.map
 
 /***/ }),
