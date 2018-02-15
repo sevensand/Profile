@@ -1,0 +1,83 @@
+.about_body{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.about_body{
+margin-top: 64px;
+}
+.about_body .about_content {
+  width: 100%;
+}
+.about_body .about_skills {
+  width: 33%;
+}
+
+@media (max-width: 400px) {
+  .about_body {
+    display: block;
+  }
+  .about_body .about_content {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}
+.mat-card {
+  top: 5px;
+}
+
+.image_about {
+  position: relative;
+  margin-top: -90px;
+  width: 150px;
+  height: 150px;
+  background-size: cover;
+
+}
+
+
+/* SKILLLS */
+
+.about_skills_body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+ .about_skills_body .about_skills {
+  width: 100%;
+  padding: 5px;
+}
+@media (max-width: 1200px) {
+  .about_skills {
+    display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  .about_skills_body {
+    display: block;
+  }
+  .about_skills {
+    width: 100%;
+  }
+}
+
+
+.about_skills .skills_content {
+  width: 100%;
+  text-align: center;
+}
+.skills_icon {
+  font-size: 30px;
+}
+.skills-icon {
+  width: 80px;
+  height: 80px;
+}

@@ -11,4 +11,12 @@ export class ProfileProvider {
     return this.http.get('pController')
     .map(result => this.result = result.json());
   }
+  getWeather(){
+    return this.http.get('weather')
+    .map(result => this.result = result.json());
+  }
+  getBlog(){
+    return this.http.get('myblogs')
+    .map(result => this.result = result.json());
+  }
 }

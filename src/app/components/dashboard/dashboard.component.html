@@ -1,0 +1,159 @@
+<div class="dashboard_body dash_tophead">
+<div class="top-dashboard" >
+<div class="dash-top">
+  <mat-card class="matcard-slunt">
+    <mat-card-title class="title-head">
+        <h2 class="mat-h2">PROJECTS</h2>
+    </mat-card-title>
+    <mat-card-content>
+  <div class="proj">
+    <h1 class="proj-cont"><img src="assets/global.png" class="top-icon"/> 78</h1>
+  </div>
+    </mat-card-content>
+      <mat-progress-bar mode="indeterminate" color=""></mat-progress-bar>
+  </mat-card>
+</div>
+<div class="dash-top">
+  <mat-card class="matcard-slunt">
+    <mat-card-title class="title-head">
+        <h2 class="mat-h2">CODE LINES</h2>
+    </mat-card-title>
+    <mat-card-content>
+<div class="proj">
+  <h1 class="proj-cont"><img src="assets/tv.png" class="top-icon"/> 98,000</h1>
+</div>
+  <mat-progress-bar mode="indeterminate" color=""></mat-progress-bar>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div class="dash-top">
+  <mat-card class="matcard-slunt">
+    <mat-card-title class="title-head">
+        <h2 class="mat-h2">EXPERIENCE</h2>
+    </mat-card-title>
+    <mat-card-content>
+<div class="proj">
+  <h1 class="proj-cont"><img src="assets/expirenced.png" class="top-icon"/> 6</h1>
+</div>
+    </mat-card-content>
+      <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+  </mat-card>
+</div>
+
+<div class="dash-top">
+  <mat-card class="matcard-slunt">
+    <mat-card-title class="title-head">
+        <h2 class="mat-h2">TECHNOLOGIES</h2>
+    </mat-card-title>
+    <mat-card-content>
+<div class="proj">
+      <h1 class="proj-cont"><img src="assets/connected.png" class="top-icon"/> 24</h1>
+</div>
+    </mat-card-content>
+      <mat-progress-bar mode="indeterminate" color=""></mat-progress-bar>
+  </mat-card>
+</div>
+</div>
+</div>
+
+
+<div class="dashboard_body">
+<div class="top-dashboard" >
+  <div class="dash-top">
+    <mat-card class="matcard-slunt-1">
+      <mat-card-title class="title-head">
+          <div *ngFor="let item of weathercountry">
+            <h3>{{ item.name }}</h3>
+            <h3 class="mat-h3" style="margin-top:-20px;">{{today | date:'fullDate'}}</h3>
+          </div>
+      </mat-card-title>
+      <mat-card-content>
+        <div class="proj-weather">
+          <div *ngFor="let item of weathercountry">
+              <div class="proj">
+                <div *ngFor="let newitem of item.weather">
+                  <img src="http://openweathermap.org/img/w/{{newitem.icon}}.png"  width="80px" height="80px;"/><h1> {{ item.main.temp - 273.15 }}&#8451;</h1><h1>{{ newitem.main }}</h1>
+                </div>
+                <h3 class="proj-cont"></h3>
+              </div>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+
+  <div class="dash-top">
+    <mat-card class="matcard-slunt">
+      <mat-card-content>
+        <img mat-card-image src="assets/philworldtour.jpg" alt="">
+        <h2 class="mat-h2">What Can I Do For You?</h2>
+
+          <p>Full Stack Developer is a someone who is able to work on both side front-end and back-end portions of an application.  Front-end generally refers to the portion of an application the user will see or interact with, and the back-end is the part of the application that handles the logic, database interactions, user authentication, server configuration.</p>
+
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary">View More..</button>
+        <button mat-raised-button color="primary">Hired Me</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <div class="dash-top">
+    <mat-card class="matcard-slunt">
+      <mat-card-header>
+
+      </mat-card-header>
+      <mat-card-content>
+        <div class="proj-weather">
+          <h1>
+            {{title}}
+          </h1>
+          <fusioncharts
+              width="100%"
+              height="350"
+              type="pie3d"
+              dataFormat="JSON"
+              [dataSource]="dataChart"
+          ></fusioncharts>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="dash-top">
+    <mat-card class="matcard-slunt">
+      <mat-card-content>
+        <h2 class="mat-h2">MY BLOG</h2>
+        <div class="proj">
+          <div class="example-container mat-elevation-z8">
+            <mat-table #table [dataSource]="dataSource">
+
+              <ng-container matColumnDef="image">
+                <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+                <mat-cell *matCellDef="let user"> <img src="assets/{{user.img}}" class="img_xmas" />  </mat-cell>
+              </ng-container>
+              <div mat-card-avatar class="image-profile" style="background-image:url('assets/profile.jpg')"></div>
+              <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef>  <h3>Topics</h3> </mat-header-cell>
+                <mat-cell *matCellDef="let user"> {{user.title}} </mat-cell>
+              </ng-container>
+
+              <ng-container matColumnDef="mydate">
+                <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
+                <mat-cell *matCellDef="let user"> {{user.idate}} </mat-cell>
+              </ng-container>
+
+              <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+              <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+</div>
+</div>
