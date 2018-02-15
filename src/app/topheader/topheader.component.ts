@@ -3,6 +3,7 @@ import {FormControl} from '@angular/forms';
 import { ProfileProvider } from '../provider/profile/profile.service';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material';
 import { DialogComponent } from '../components/dialog/dialog.component';
+import { MessageComponent } from '../components/message/message.component';
 @Component({
   selector: 'app-topheader',
   templateUrl: './topheader.component.html',
@@ -13,6 +14,7 @@ export class TopheaderComponent implements OnInit {
   date = new FormControl(new Date());
   name: Array<any>;
   dialogResult = "";
+  dialogMessage = "";
   constructor(private profileProvider: ProfileProvider, public dialog: MatDialog) {
     this.profileProvider.getName()
     .subscribe(res => {
@@ -29,8 +31,16 @@ export class TopheaderComponent implements OnInit {
     }) ;
 
     dialogref.afterClosed().subscribe(result => {
-      console.log('test closed: ${result}');
       this.dialogResult = result;
+    })
+  }
+
+  sendMessage() {
+    let dialogMess = this.dialog.open(MessageComponent,{
+      width: '600px'
+    });
+    dialogMess.afterClosed().subscribe(result => {
+      this.dialogMessage = result;
     })
   }
 

@@ -29,6 +29,7 @@ import * as Charts from 'fusioncharts/fusioncharts.charts';
 import * as FintTheme from 'fusioncharts/themes/fusioncharts.theme.fint';
 import { ServicesComponent } from './components/services/services.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { MessageComponent } from './components/message/message.component';
 
 
 
@@ -44,7 +45,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
     PortfolioComponent,
     ContactusComponent,
     ServicesComponent,
-    DialogComponent
+    DialogComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +83,8 @@ FusionChartsModule.fcRoot(FusionCharts, Charts, FintTheme);
 
   ],
   entryComponents: [
-    DialogComponent
+    DialogComponent,
+    MessageComponent
   ],
   exports: [MatButtonModule, MatCheckboxModule, SidemenuComponent, TopheaderComponent],
   providers: [

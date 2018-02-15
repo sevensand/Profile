@@ -1,0 +1,17 @@
+<div>
+<h2 mat-dialog-title>Message</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Subject">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Message"></textarea>
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onSend()">Send</button>
+</mat-dialog-actions>
+</div>
