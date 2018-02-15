@@ -1,0 +1,52 @@
+<div class="contactus_top">
+  <div class="contactus_container">
+    <div class="contactus_row">
+
+      <div class="contactus_col">
+        <mat-card class="matcard-slunt">
+          <mat-card-title class="title-head">
+            <h2 class="mat-h2">CONTACT ME</h2>
+          </mat-card-title>
+          <mat-card-content>
+            <p>Email: bryanmesias@yahoo.com, sevensand29@gmail.com</p>
+            <p>Skype: sevensand29</p>
+            <p>Mobile No: +974 331 69174</p>
+            <p>Viber: +974 331 69174</p>
+            <p>LinkedIn: https://www.linkedin.com/in/bryan-mesias-257176102/</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <div class="contactus_col">
+      <mat-card class="matcard-slunt">
+        <mat-card-title class="title-head">
+          <h2 class="mat-h2">EMAIL FORM</h2>
+        </mat-card-title>
+        <mat-card-content>
+      <div class="form_container">
+        <mat-form-field>
+          <input matInput placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Enter your email" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Subject">
+        </mat-form-field>
+
+        <mat-form-field>
+          <textarea matInput placeholder="Textarea"></textarea>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary">Send</button>
+      <button mat-raised-button color="primary">Clear</button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    </div>
+  </div>
+</div>

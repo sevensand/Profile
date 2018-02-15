@@ -1,0 +1,45 @@
+.services_top {
+  margin-top: 64px;
+}
+.services_container {
+  width: 100%;
+  padding-top: 15px;
+  padding-right: 5px;
+}
+.services_row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.services_row .services_col {
+width: 100%;
+}
+.services_col {
+  padding-right: 5px;
+}
+.top-icon {
+  width: 80px;
+  height: 80px;
+}
+
+
+@media(max-width:800px) {
+  .services_row {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .services_row {
+    display: block;
+  }
+  .services_row .services_col {
+    width: 100%;
+    margin: 0px 0 5px;
+  }
+}

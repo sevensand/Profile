@@ -1,0 +1,31 @@
+.contactus_top {
+  margin-top: 64px;
+}
+.contactus_container {
+  padding-top: 15px;
+}
+.contactus_row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.contactus_row .contactus_col {
+  width: 50%;
+}
+.contactus_col {
+  margin-right: 5px;
+}
+
+
+.form_container {
+display: flex;
+flex-direction: column;
+width: 100%;
+}
+.mat-form-field {
+  width: 100%;
+}

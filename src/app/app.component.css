@@ -1,1 +1,11 @@
 /*ICON IN TOOLBAR*/
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%  !important;
+}
+.icon-spacer{
+  flex: 1 1 auto;
+}

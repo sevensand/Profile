@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileProvider } from './provider/profile/profile.service';
-import { SidemenuComponent } from './sidemenu/sidemenu.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

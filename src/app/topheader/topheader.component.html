@@ -1,0 +1,64 @@
+<mat-toolbar color="primary" class="fixed-header">
+  <button mat-button (click)="sidenav.toggle()" ><mat-icon class="toolbar-icon" >menu</mat-icon></button>
+  <span class="icon-spacer"></span>
+  <button mat-button><mat-icon class="toolbar-icon" >search</mat-icon></button>
+  <button mat-button><mat-icon class="toolbar-icon" >mail</mat-icon></button>
+  <button mat-button><mat-icon class="toolbar-icon" >notifications_none</mat-icon></button>
+  <button mat-button (click)="openDialog()"><mat-icon class="toolbar-icon" >info</mat-icon></button>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="mainContent">
+  <mat-sidenav #sidenav mode="side" opened="true">
+    <div class="sideiconmenu">
+      <mat-list dense>
+        <mat-list-item><a routerLink="" matTooltip="Dashboard"><mat-icon class="toolbar-icon">view_quilt</mat-icon></a></mat-list-item>
+        <mat-list-item><a routerLink="/about" matTooltip="About"><mat-icon>portrait</mat-icon></a></mat-list-item>
+        <mat-list-item><a href="" matTooltip="Resume"><mat-icon>insert_drive_file</mat-icon></a></mat-list-item>
+        <mat-list-item><a routerLink="/portfolio" matTooltip="Portfolio"><mat-icon>library_books</mat-icon></a></mat-list-item>
+        <mat-list-item><a routerLink="/services" matTooltip="Services"><mat-icon>build</mat-icon></a></mat-list-item>
+        <mat-list-item><a routerLink="/contactus" matTooltip="Contact Me"><mat-icon>phone</mat-icon></a></mat-list-item>
+        <mat-list-item><a href="" matTooltip="Settings"><mat-icon>settings</mat-icon></a></mat-list-item>
+      </mat-list>
+    </div>
+    <div class="profile_side">
+      <mat-card>
+        <mat-card-header>
+          <div mat-card-avatar class="image-profile" style="background-image:url('assets/profile.jpg')"></div>
+        </mat-card-header>
+        <mat-card-content class="text-name">
+
+          <br />
+
+
+      <p *ngFor="let profile of name">
+
+          <strong>Full Name:</strong> {{ profile.name }}
+          <br /><br />
+          <strong>Birth Date:</strong> {{ profile.bdate }}
+          <br /><br />
+          <strong>Job:</strong> {{ profile.job }}
+          <br /><br />
+          <strong>Email:</strong> {{ profile.email }}
+          <br /><br />
+          <strong>Website: </strong> {{ profile.website }}
+          <br /><br />
+          <strong>From: </strong> {{ profile.from }}
+          <br /><br />
+          <strong>Current Location: </strong> {{ profile.loc }}
+      </p>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+  </mat-sidenav>
+
+
+  <!-- <div class="example-sidenav-content">
+  <button type="button" mat-button (click)="drawer.toggle()">
+    Toggle sidenav
+  </button>
+</div> -->
+</mat-sidenav-container>
+<router-outlet></router-outlet>

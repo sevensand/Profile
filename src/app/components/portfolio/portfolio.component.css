@@ -1,0 +1,101 @@
+.top-dashboard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.dashboard_body{
+margin-top: 5px;
+}
+.top-dashboard .dash-top {
+  width: 100%;
+}
+.dash_tophead {
+  margin-top: 63px;
+}
+
+
+@media(max-width:800px) {
+  .top-dashboard {
+    display: block;
+  }
+}
+
+@media (max-width: 400px) {
+  .top-dashboard {
+    display: block;
+  }
+  .top-dashboard .dash-top {
+    width: 100%;
+    margin: 0 0 10px;
+  }
+}
+.dash-top {
+  padding: 5px;
+}
+.proj {
+  text-align: center;
+}
+.proj-cont {
+  font-size: 40px;
+  font-weight: 400;
+}
+.proj-weather {
+  /*top: 0px;
+  display: inline-block;
+  width: auto;
+  max-width: 220px;
+  position:absol:;ute;*/
+}
+.mat-list-item {
+  width: 100%;
+}
+.material-icons {
+  font-size: 40px;
+}
+
+.matcard-slunt {
+  transform: skewX(-20);
+    border-radius: 24px 0px;
+}
+.matcard-slunt-1 {
+  transform: skewX(-20);
+    border-radius: 24px 0px;
+    background-image: url('../../../assets/sky.jpg');
+}
+.matcard-slunt-2{
+  transform: skewX(-20);
+    border-radius: 24px 0px;
+    background-image: url('../../../assets/philippines.jpg');
+}
+
+mat-slider {
+  width: 100%;
+}
+.top-icon {
+  width: 80px;
+  height: 80px;
+}
+.img_xmas {
+  width: 90px;
+  height: 70px;
+  padding-top: 3px;
+}
+
+mat-row:nth-child(even){
+ background-color:#726f6f;
+}
+mat-row:nth-child(odd){
+background-color:#424242;
+}
+.mat-table::-webkit-scrollbar {
+width: 10px;
+background-color: #b50e39;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 360px;
+}

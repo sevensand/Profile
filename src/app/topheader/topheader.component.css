@@ -1,0 +1,74 @@
+/*TOPHEADER*/
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%  !important;
+}
+.icon-spacer{
+  flex: 1 1 auto;
+}
+
+/*SIDENAVBAR*/
+.mainContent {
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  height: 100% !important;
+  border: 0px solid rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 600px) {
+  .mainContent {
+    position: fixed;
+    top: 50px;
+  }
+}
+
+
+.mainContent mat-sidenav {
+  max-width: 320px;
+  background-color: #424242;
+}
+
+.mainContent .mat-sidenav-content, .mainContent mat-sidenav {
+  display: flex;
+  overflow: visible;
+}
+
+.sideiconmenu {
+  height: 100%;
+}
+.profile_side {
+  width: 260px;
+  background-color: #424242;
+}
+.dashboard_content {
+  margin: 25px;
+}
+.image-profile {
+  width: 150px;
+  height: 150px;
+  margin-left: 32px;
+  background-size: cover;
+}
+/*.profile_side .mat-card {
+  background-color: rgba(0, 0, 0, 0.98);
+}*/
+.p {
+  font-size: 12px;
+}
+
+.mat-icon{
+  color: #fff;
+}
+.mat-card {
+  height: 100%;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
