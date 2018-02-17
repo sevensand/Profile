@@ -13,6 +13,7 @@ import { MessageComponent } from '../components/message/message.component';
 export class TopheaderComponent implements OnInit {
   date = new FormControl(new Date());
   name: Array<any>;
+  message: Array<any>;
   dialogResult = "";
   dialogMessage = "";
   constructor(private profileProvider: ProfileProvider, public dialog: MatDialog) {
@@ -20,7 +21,10 @@ export class TopheaderComponent implements OnInit {
     .subscribe(res => {
       this.name = res;
     });
-
+    this.profileProvider.getMessage()
+    .subscribe(res => {
+      this.message = res;
+    });
   }
   ngOnInit() {
   }

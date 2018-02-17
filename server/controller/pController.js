@@ -18,7 +18,7 @@ var pSchema = new mongoose.Schema({
 
 var myprofile = mongoose.model('profile', pSchema);
 var myblogs = mongoose.model('blogs', pSchema);
-
+var mymessage = mongoose.model('messages', pSchema);
 
 
 var urlencodedParser = bodyParser.urlencoded({extended:false});
@@ -41,6 +41,13 @@ app.get('/weather', function(req, res){
 
 app.get('/myblogs', function(req, res){
   myblogs.find({}, function(err, data){
+    if(err) throw err;
+    res.json(data);
+  });
+});
+
+app.get('/message', function(req, res){
+  mymessage.find({}, function(err, data){
     if(err) throw err;
     res.json(data);
   });

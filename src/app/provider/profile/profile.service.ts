@@ -19,4 +19,8 @@ export class ProfileProvider {
     return this.http.get('myblogs')
     .map(result => this.result = result.json());
   }
+  getMessage(){
+    return this.http.get('message')
+    .map(result => this.result = result.json());
+  }
 }

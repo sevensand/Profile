@@ -2,7 +2,7 @@
   <button mat-button (click)="sidenav.toggle()" ><mat-icon class="toolbar-icon" >menu</mat-icon></button>
   <span class="icon-spacer"></span>
   <button mat-button (click)="sendMessage()"><mat-icon class="toolbar-icon" >mail</mat-icon></button>
-  <button mat-button><mat-icon class="toolbar-icon" >notifications_none</mat-icon></button>
+  <button mat-button><mat-icon class="toolbar-icon" data-badge="4">notifications_none</mat-icon><span class="badge" >{{message?.length || '0'}}</span></button>
   <button mat-button (click)="openDialog()"><mat-icon class="toolbar-icon" >info</mat-icon></button>
 </mat-toolbar>
 
@@ -30,7 +30,7 @@
           <br />
 
 
-      <p *ngFor="let profile of name">
+      <p *ngFor="let profile of name"> 
 
           <strong>Full Name:</strong> {{ profile.name }}
           <br /><br />
