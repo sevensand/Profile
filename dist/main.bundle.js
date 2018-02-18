@@ -237,7 +237,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["q" /* MatMenuModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatButtonModule */],
@@ -639,7 +639,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/message/message.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<mat-dialog-content>\n  <mat-form-field>\n    <input matInput placeholder=\"Name\">\n  </mat-form-field>\n  <mat-form-field>\n    <input matInput placeholder=\"Subject\">\n  </mat-form-field>\n  <mat-form-field>\n    <textarea matInput placeholder=\"Message\"></textarea>\n  </mat-form-field>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-raised-button color=\"primary\" (click)=\"onSend()\">Send</button>\n</mat-dialog-actions>\n</div>\n"
+module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<form>\n  <mat-dialog-content>\n    <mat-form-field>\n      <input matInput placeholder=\"Name\" name=\"sender\" [(ngModel)] = \"sender\">\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Subject\" name=\"subject\" [(ngModel)] = \"subject\">\n    </mat-form-field>\n    <mat-form-field>\n      <textarea matInput placeholder=\"Message\" name=\"message\" [(ngModel)] = \"message\"></textarea>\n    </mat-form-field>\n  </mat-dialog-content>\n  <mat-dialog-actions>\n    <button mat-raised-button color=\"primary\" (click)=\"sendMessage(event)\">Send</button>\n  </mat-dialog-actions>\n</form>\n</div>\n"
 
 /***/ }),
 
@@ -648,8 +648,10 @@ module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<mat-dialog-content>
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageComponent; });
+/* unused harmony export Inbox */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__provider_profile_profile_service__ = __webpack_require__("../../../../../src/app/provider/profile/profile.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -664,14 +666,27 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 
 
+
 var MessageComponent = (function () {
-    function MessageComponent(thisDialogRef, data) {
+    function MessageComponent(profileProvider, thisDialogRef, data) {
+        this.profileProvider = profileProvider;
         this.thisDialogRef = thisDialogRef;
         this.data = data;
+        this.Inbox = [];
     }
     MessageComponent.prototype.ngOnInit = function () {
     };
-    MessageComponent.prototype.onSend = function () {
+    MessageComponent.prototype.sendMessage = function (event) {
+        var _this = this;
+        var data = {
+            sender: this.sender,
+            subject: this.subject,
+            message: this.message
+        };
+        this.profileProvider.getInbox(data)
+            .subscribe(function (res) {
+            _this.Inbox.push(res);
+        });
         this.thisDialogRef.close('Confirm');
     };
     return MessageComponent;
@@ -682,11 +697,17 @@ MessageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/message/message.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/message/message.component.css")]
     }),
-    __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object, Object])
+    __param(2, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MAT_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__provider_profile_profile_service__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__provider_profile_profile_service__["a" /* ProfileProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */]) === "function" && _b || Object, Object])
 ], MessageComponent);
 
-var _a;
+var Inbox = (function () {
+    function Inbox() {
+    }
+    return Inbox;
+}());
+
+var _a, _b;
 //# sourceMappingURL=message.component.js.map
 
 /***/ }),
@@ -857,11 +878,18 @@ var ProfileProvider = (function () {
         return this.http.get('message')
             .map(function (result) { return _this.result = result.json(); });
     };
+    ProfileProvider.prototype.getInbox = function (data) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('messagepost', JSON.stringify(data), { headers: headers })
+            .map(function (result) { return _this.result = result.json(); });
+    };
     return ProfileProvider;
 }());
 ProfileProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], ProfileProvider);
 
 var _a;

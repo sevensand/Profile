@@ -14,6 +14,12 @@ export class TopheaderComponent implements OnInit {
   date = new FormControl(new Date());
   name: Array<any>;
   message: Array<any>;
+
+  sender: string;
+  subject: string;
+  inbox: string;
+  senddate: Date;
+
   dialogResult = "";
   dialogMessage = "";
   constructor(private profileProvider: ProfileProvider, public dialog: MatDialog) {
