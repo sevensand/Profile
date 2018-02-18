@@ -13,12 +13,16 @@ mongoose.connect(url, {server: { poolsize:10}}, function(error){
 
 var pSchema = new mongoose.Schema({
   name: String,
+  sender: String,
+  subject: String,
+  message: String,
   date: { type: Date, default: Date.now }
 });
 
 var myprofile = mongoose.model('profile', pSchema);
 var myblogs = mongoose.model('blogs', pSchema);
-
+var mymessage = mongoose.model('messages', pSchema);
+var newmessage = mongoose.model('messages', pSchema);
 
 
 var urlencodedParser = bodyParser.urlencoded({extended:false});
@@ -45,5 +49,37 @@ app.get('/myblogs', function(req, res){
     res.json(data);
   });
 });
+
+//messages
+app.get('/message', function(req, res){
+  mymessage.find({}, function(err, data){
+    if(err) throw err;
+    res.json(data);
+  });
+});
+
+
+app.post('/messagepost', urlencodedParser, function(req, res){
+  var newMessage = newmessage({
+    sender: req.body.sender,
+    subject: req.body.subject,
+    message: req.body.message
+  }).save(function(err, iMessage){
+    if (err) {
+      res.json({msg: 'Failed to add Message'});
+    } else {
+      console.log('saved');
+      res.json({msg: 'Successfully Added Message'});
+    }
+  });
+
+});
+// app.post('/messagepost', urlencodedParser, function(req, res){
+//   var newMessage = newmessage(req.body).save(function(err, newmessage){
+//     if (err) throw err;
+//     res.json(newmessage);
+//     console.log(newmessage);
+//   });
+// });
 
 }

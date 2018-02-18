@@ -237,7 +237,7 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* HttpModule */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["q" /* MatMenuModule */],
             __WEBPACK_IMPORTED_MODULE_8__angular_material__["b" /* MatButtonModule */],
@@ -639,7 +639,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/message/message.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<mat-dialog-content>\n  <mat-form-field>\n    <input matInput placeholder=\"Name\">\n  </mat-form-field>\n  <mat-form-field>\n    <input matInput placeholder=\"Subject\">\n  </mat-form-field>\n  <mat-form-field>\n    <textarea matInput placeholder=\"Message\"></textarea>\n  </mat-form-field>\n</mat-dialog-content>\n<mat-dialog-actions>\n  <button mat-raised-button color=\"primary\" (click)=\"onSend()\">Send</button>\n</mat-dialog-actions>\n</div>\n"
+module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<form>\n  <mat-dialog-content>\n    <mat-form-field>\n      <input matInput placeholder=\"Name\" name=\"sender\" [(ngModel)] = \"sender\">\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Subject\" name=\"subject\" [(ngModel)] = \"subject\">\n    </mat-form-field>\n    <mat-form-field>\n      <textarea matInput placeholder=\"Message\" name=\"message\" [(ngModel)] = \"message\"></textarea>\n    </mat-form-field>\n  </mat-dialog-content>\n  <mat-dialog-actions>\n    <button mat-raised-button color=\"primary\" (click)=\"sendMessage(event)\">Send</button>\n    <button mat-raised-button color=\"primary\" (click)=\"onCloseCancel()\">Close</button>\n  </mat-dialog-actions>\n</form>\n</div>\n"
 
 /***/ }),
 
@@ -648,8 +648,10 @@ module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<mat-dialog-content>
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MessageComponent; });
+/* unused harmony export Inbox */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__provider_profile_profile_service__ = __webpack_require__("../../../../../src/app/provider/profile/profile.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -664,14 +666,30 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 
 
+
 var MessageComponent = (function () {
-    function MessageComponent(thisDialogRef, data) {
+    function MessageComponent(profileProvider, thisDialogRef, data) {
+        this.profileProvider = profileProvider;
         this.thisDialogRef = thisDialogRef;
         this.data = data;
+        this.Inbox = [];
     }
     MessageComponent.prototype.ngOnInit = function () {
     };
-    MessageComponent.prototype.onSend = function () {
+    MessageComponent.prototype.sendMessage = function (event) {
+        var _this = this;
+        var data = {
+            sender: this.sender,
+            subject: this.subject,
+            message: this.message
+        };
+        this.profileProvider.getInbox(data)
+            .subscribe(function (res) {
+            _this.Inbox.push(res);
+        });
+        this.thisDialogRef.close('Confirm');
+    };
+    MessageComponent.prototype.onCloseCancel = function () {
         this.thisDialogRef.close('Confirm');
     };
     return MessageComponent;
@@ -682,11 +700,17 @@ MessageComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/message/message.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/message/message.component.css")]
     }),
-    __param(1, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_material__["j" /* MatDialogRef */]) === "function" && _a || Object, Object])
+    __param(2, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_2__angular_material__["a" /* MAT_DIALOG_DATA */])),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__provider_profile_profile_service__["a" /* ProfileProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__provider_profile_profile_service__["a" /* ProfileProvider */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_material__["j" /* MatDialogRef */]) === "function" && _b || Object, Object])
 ], MessageComponent);
 
-var _a;
+var Inbox = (function () {
+    function Inbox() {
+    }
+    return Inbox;
+}());
+
+var _a, _b;
 //# sourceMappingURL=message.component.js.map
 
 /***/ }),
@@ -852,11 +876,23 @@ var ProfileProvider = (function () {
         return this.http.get('myblogs')
             .map(function (result) { return _this.result = result.json(); });
     };
+    ProfileProvider.prototype.getMessage = function () {
+        var _this = this;
+        return this.http.get('message')
+            .map(function (result) { return _this.result = result.json(); });
+    };
+    ProfileProvider.prototype.getInbox = function (data) {
+        var _this = this;
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('messagepost', JSON.stringify(data), { headers: headers })
+            .map(function (result) { return _this.result = result.json(); });
+    };
     return ProfileProvider;
 }());
 ProfileProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]) === "function" && _a || Object])
 ], ProfileProvider);
 
 var _a;
@@ -933,7 +969,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/*TOPHEADER*/\r\n.fixed-header {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 2;\r\n    width: 100%  !important;\r\n}\r\n.icon-spacer{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: 1 1 auto;\r\n          flex: 1 1 auto;\r\n}\r\n\r\n/*SIDENAVBAR*/\r\n.mainContent {\r\n  position: fixed;\r\n  left: 0;\r\n  z-index: 1;\r\n  height: 100% !important;\r\n  border: 0px solid rgba(0, 0, 0, 0.5);\r\n}\r\n@media (max-width: 600px) {\r\n  .mainContent {\r\n    position: fixed;\r\n    top: 50px;\r\n  }\r\n}\r\n\r\n\r\n.mainContent mat-sidenav {\r\n  max-width: 320px;\r\n  background-color: #424242;\r\n}\r\n\r\n.mainContent .mat-sidenav-content, .mainContent mat-sidenav {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  overflow: visible;\r\n}\r\n\r\n.sideiconmenu {\r\n  height: 100%;\r\n}\r\n.profile_side {\r\n  width: 260px;\r\n  background-color: #424242;\r\n}\r\n.dashboard_content {\r\n  margin: 25px;\r\n}\r\n.image-profile {\r\n  width: 150px;\r\n  height: 150px;\r\n  margin-left: 32px;\r\n  background-size: cover;\r\n}\r\n/*.profile_side .mat-card {\r\n  background-color: rgba(0, 0, 0, 0.98);\r\n}*/\r\n.p {\r\n  font-size: 12px;\r\n}\r\n\r\n.mat-icon{\r\n  color: #fff;\r\n}\r\n.mat-card {\r\n  height: 100%;\r\n}\r\n\r\n.example-sidenav-content {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  height: 100%;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n}\r\n", ""]);
+exports.push([module.i, "/*TOPHEADER*/\r\n.fixed-header {\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    z-index: 2;\r\n    width: 100%  !important;\r\n}\r\n.icon-spacer{\r\n  -webkit-box-flex: 1;\r\n      -ms-flex: 1 1 auto;\r\n          flex: 1 1 auto;\r\n}\r\n\r\n/*SIDENAVBAR*/\r\n.mainContent {\r\n  position: fixed;\r\n  left: 0;\r\n  z-index: 1;\r\n  height: 100% !important;\r\n  border: 0px solid rgba(0, 0, 0, 0.5);\r\n}\r\n@media (max-width: 600px) {\r\n  .mainContent {\r\n    position: fixed;\r\n    top: 50px;\r\n  }\r\n}\r\n\r\n\r\n.mainContent mat-sidenav {\r\n  max-width: 320px;\r\n  background-color: #424242;\r\n}\r\n\r\n.mainContent .mat-sidenav-content, .mainContent mat-sidenav {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  overflow: visible;\r\n}\r\n\r\n.sideiconmenu {\r\n  height: 100%;\r\n}\r\n.profile_side {\r\n  width: 260px;\r\n  background-color: #424242;\r\n}\r\n.dashboard_content {\r\n  margin: 25px;\r\n}\r\n.image-profile {\r\n  width: 150px;\r\n  height: 150px;\r\n  margin-left: 32px;\r\n  background-size: cover;\r\n}\r\n/*.profile_side .mat-card {\r\n  background-color: rgba(0, 0, 0, 0.98);\r\n}*/\r\n.p {\r\n  font-size: 12px;\r\n}\r\n\r\n.mat-icon{\r\n  color: #fff;\r\n}\r\n.mat-card {\r\n  height: 100%;\r\n}\r\n\r\n.example-sidenav-content {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  height: 100%;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n}\r\n\r\n.badge {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 50%;\r\n  font-size: 12px;\r\n  line-height: 13px;\r\n  border-radius: 50%;\r\n  width: 13px;\r\n  height: 13px;\r\n  background-color: #ff0000;\r\n  border: 4px solid #ff0000;\r\n  color: #ffffff;\r\n  text-align: center;\r\n}\r\n", ""]);
 
 // exports
 
@@ -946,7 +982,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/topheader/topheader.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"primary\" class=\"fixed-header\">\n  <button mat-button (click)=\"sidenav.toggle()\" ><mat-icon class=\"toolbar-icon\" >menu</mat-icon></button>\n  <span class=\"icon-spacer\"></span>\r\n  <button mat-button (click)=\"sendMessage()\"><mat-icon class=\"toolbar-icon\" >mail</mat-icon></button>\n  <button mat-button><mat-icon class=\"toolbar-icon\" >notifications_none</mat-icon></button>\n  <button mat-button (click)=\"openDialog()\"><mat-icon class=\"toolbar-icon\" >info</mat-icon></button>\n</mat-toolbar>\r\n\r\n\r\n<mat-sidenav-container class=\"mainContent\">\r\n  <mat-sidenav #sidenav mode=\"side\" opened=\"true\">\r\n    <div class=\"sideiconmenu\">\r\n      <mat-list dense>\r\n        <mat-list-item><a routerLink=\"\" matTooltip=\"Dashboard\"><mat-icon class=\"toolbar-icon\">view_quilt</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/about\" matTooltip=\"About\"><mat-icon>portrait</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Resume\"><mat-icon>insert_drive_file</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/portfolio\" matTooltip=\"Portfolio\"><mat-icon>library_books</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/services\" matTooltip=\"Services\"><mat-icon>build</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/contactus\" matTooltip=\"Contact Me\"><mat-icon>phone</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Settings\"><mat-icon>settings</mat-icon></a></mat-list-item>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"profile_side\">\r\n      <mat-card>\r\n        <mat-card-header>\r\n          <div mat-card-avatar class=\"image-profile\" style=\"background-image:url('assets/profile.jpg')\"></div>\r\n        </mat-card-header>\r\n        <mat-card-content class=\"text-name\">\r\n\r\n          <br />\r\n\r\n\r\n      <p *ngFor=\"let profile of name\">\r\n\r\n          <strong>Full Name:</strong> {{ profile.name }}\r\n          <br /><br />\r\n          <strong>Birth Date:</strong> {{ profile.bdate }}\r\n          <br /><br />\r\n          <strong>Job:</strong> {{ profile.job }}\r\n          <br /><br />\r\n          <strong>Email:</strong> {{ profile.email }}\r\n          <br /><br />\r\n          <strong>Website: </strong> {{ profile.website }}\r\n          <br /><br />\r\n          <strong>From: </strong> {{ profile.from }}\r\n          <br /><br />\r\n          <strong>Current Location: </strong> {{ profile.loc }}\r\n      </p>\r\n\r\n        </mat-card-content>\r\n      </mat-card>\r\n    </div>\r\n\r\n  </mat-sidenav>\r\n\r\n\r\n  <!-- <div class=\"example-sidenav-content\">\r\n  <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\r\n    Toggle sidenav\r\n  </button>\r\n</div> -->\r\n</mat-sidenav-container>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<mat-toolbar color=\"primary\" class=\"fixed-header\">\n  <button mat-button (click)=\"sidenav.toggle()\" ><mat-icon class=\"toolbar-icon\" >menu</mat-icon></button>\n  <span class=\"icon-spacer\"></span>\r\n  <button mat-button (click)=\"sendMessage()\"><mat-icon class=\"toolbar-icon\" >mail</mat-icon></button>\n  <button mat-button><mat-icon class=\"toolbar-icon\" data-badge=\"4\">notifications_none</mat-icon><span class=\"badge\" >{{message?.length || '0'}}</span></button>\n  <button mat-button (click)=\"openDialog()\"><mat-icon class=\"toolbar-icon\" >info</mat-icon></button>\n</mat-toolbar>\r\n\r\n\r\n<mat-sidenav-container class=\"mainContent\">\r\n  <mat-sidenav #sidenav mode=\"side\" opened=\"true\">\r\n    <div class=\"sideiconmenu\">\r\n      <mat-list dense>\r\n        <mat-list-item><a routerLink=\"\" matTooltip=\"Dashboard\"><mat-icon class=\"toolbar-icon\">view_quilt</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/about\" matTooltip=\"About\"><mat-icon>portrait</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Resume\"><mat-icon>insert_drive_file</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/portfolio\" matTooltip=\"Portfolio\"><mat-icon>library_books</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/services\" matTooltip=\"Services\"><mat-icon>build</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a routerLink=\"/contactus\" matTooltip=\"Contact Me\"><mat-icon>phone</mat-icon></a></mat-list-item>\r\n        <mat-list-item><a href=\"\" matTooltip=\"Settings\"><mat-icon>settings</mat-icon></a></mat-list-item>\r\n      </mat-list>\r\n    </div>\r\n    <div class=\"profile_side\">\r\n      <mat-card>\r\n        <mat-card-header>\r\n          <div mat-card-avatar class=\"image-profile\" style=\"background-image:url('assets/profile.jpg')\"></div>\r\n        </mat-card-header>\r\n        <mat-card-content class=\"text-name\">\r\n\r\n          <br />\r\n\r\n\r\n      <p *ngFor=\"let profile of name\">\r\n\r\n          <strong>Full Name:</strong> {{ profile.name }}\r\n          <br /><br />\r\n          <strong>Birth Date:</strong> {{ profile.bdate }}\r\n          <br /><br />\r\n          <strong>Job:</strong> {{ profile.job }}\r\n          <br /><br />\r\n          <strong>Email:</strong> {{ profile.email }}\r\n          <br /><br />\r\n          <strong>Website: </strong> {{ profile.website }}\r\n          <br /><br />\r\n          <strong>From: </strong> {{ profile.from }}\r\n          <br /><br />\r\n          <strong>Current Location: </strong> {{ profile.loc }}\r\n      </p>\r\n\r\n        </mat-card-content>\r\n      </mat-card>\r\n    </div>\r\n\r\n  </mat-sidenav>\r\n\r\n\r\n  <!-- <div class=\"example-sidenav-content\">\r\n  <button type=\"button\" mat-button (click)=\"drawer.toggle()\">\r\n    Toggle sidenav\r\n  </button>\r\n</div> -->\r\n</mat-sidenav-container>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -987,6 +1023,10 @@ var TopheaderComponent = (function () {
         this.profileProvider.getName()
             .subscribe(function (res) {
             _this.name = res;
+        });
+        this.profileProvider.getMessage()
+            .subscribe(function (res) {
+            _this.message = res;
         });
     }
     TopheaderComponent.prototype.ngOnInit = function () {

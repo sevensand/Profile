@@ -19,4 +19,16 @@ export class ProfileProvider {
     return this.http.get('myblogs')
     .map(result => this.result = result.json());
   }
+  getMessage(){
+    return this.http.get('message')
+    .map(result => this.result = result.json());
+  }
+
+  getInbox(data) {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('messagepost', JSON.stringify(data), {headers: headers})
+    .map(result => this.result = result.json());
+  }
+
 }
