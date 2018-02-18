@@ -33,6 +33,9 @@ export class MessageComponent implements OnInit {
       });
       this.thisDialogRef.close('Confirm');
   }
+  onCloseCancel(){
+    this.thisDialogRef.close('Confirm');
+  }
 }
 
 export class Inbox {

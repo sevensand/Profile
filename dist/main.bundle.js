@@ -639,7 +639,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/message/message.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<form>\n  <mat-dialog-content>\n    <mat-form-field>\n      <input matInput placeholder=\"Name\" name=\"sender\" [(ngModel)] = \"sender\">\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Subject\" name=\"subject\" [(ngModel)] = \"subject\">\n    </mat-form-field>\n    <mat-form-field>\n      <textarea matInput placeholder=\"Message\" name=\"message\" [(ngModel)] = \"message\"></textarea>\n    </mat-form-field>\n  </mat-dialog-content>\n  <mat-dialog-actions>\n    <button mat-raised-button color=\"primary\" (click)=\"sendMessage(event)\">Send</button>\n  </mat-dialog-actions>\n</form>\n</div>\n"
+module.exports = "<div>\n<h2 mat-dialog-title>Message</h2>\n<form>\n  <mat-dialog-content>\n    <mat-form-field>\n      <input matInput placeholder=\"Name\" name=\"sender\" [(ngModel)] = \"sender\">\n    </mat-form-field>\n    <mat-form-field>\n      <input matInput placeholder=\"Subject\" name=\"subject\" [(ngModel)] = \"subject\">\n    </mat-form-field>\n    <mat-form-field>\n      <textarea matInput placeholder=\"Message\" name=\"message\" [(ngModel)] = \"message\"></textarea>\n    </mat-form-field>\n  </mat-dialog-content>\n  <mat-dialog-actions>\n    <button mat-raised-button color=\"primary\" (click)=\"sendMessage(event)\">Send</button>\n    <button mat-raised-button color=\"primary\" (click)=\"onCloseCancel()\">Close</button>\n  </mat-dialog-actions>\n</form>\n</div>\n"
 
 /***/ }),
 
@@ -687,6 +687,9 @@ var MessageComponent = (function () {
             .subscribe(function (res) {
             _this.Inbox.push(res);
         });
+        this.thisDialogRef.close('Confirm');
+    };
+    MessageComponent.prototype.onCloseCancel = function () {
         this.thisDialogRef.close('Confirm');
     };
     return MessageComponent;
