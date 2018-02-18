@@ -21,7 +21,7 @@ export class MessageComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendMessage(event){
+  sendMessage(){
       const data = {
         sender: this.sender,
         subject: this.subject,
